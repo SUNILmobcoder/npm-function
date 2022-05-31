@@ -1,5 +1,4 @@
 "use strict";
-// import { FiscriptProps, StationProps } from '../../_types';
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.formateStations = exports.filterStationsName = exports.questionMapToStation = void 0;
 // function to map question to its station and questionGroup
