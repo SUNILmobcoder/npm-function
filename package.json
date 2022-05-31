@@ -2,7 +2,7 @@
   "name": "npm-function",
   "version": "1.0.0",
   "description": "",
-  "main": "lib/index.js",
+  "main": "index.js",
   "scripts": {
     "build": "tsc",
     "test": "echo \"Error: no test specified\" && exit 1",
