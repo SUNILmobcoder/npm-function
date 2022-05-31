@@ -509,4 +509,19 @@ interface LuggageProps {
         };
     };
 }
-export type { FiscriptProps, StationProps, StationArrayProps, QusetionsProps, QuestionProps, ActivatedByProps, AnswerProps, QuestionGroupProps, LanguageProps, LuggageProps, };
+interface RenderStationProps {
+    Type: string;
+    Name: string;
+    GroupName?: string;
+    Hidden: string;
+    Visible: string;
+    ActivatedBy?: {
+        Key: string;
+        Type?: string;
+        LuggageSource?: string;
+        Operator?: string;
+        Values?: string[];
+        ActivatedBy?: any;
+    }[];
+}
+export type { FiscriptProps, StationProps, StationArrayProps, QusetionsProps, QuestionProps, ActivatedByProps, AnswerProps, QuestionGroupProps, LanguageProps, LuggageProps, RenderStationProps, };

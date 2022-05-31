@@ -523,6 +523,21 @@ interface LuggageProps {
     };
   };
 }
+interface RenderStationProps {
+  Type: string;
+  Name: string;
+  GroupName?: string;
+  Hidden: string;
+  Visible: string;
+  ActivatedBy?: {
+    Key: string;
+    Type?: string;
+    LuggageSource?: string; // optional
+    Operator?: string;
+    Values?: string[];
+    ActivatedBy?: any;
+  }[];
+}
 
 export type {
   FiscriptProps,
@@ -535,4 +550,5 @@ export type {
   QuestionGroupProps,
   LanguageProps,
   LuggageProps,
+  RenderStationProps,
 };
