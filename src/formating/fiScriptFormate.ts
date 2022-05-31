@@ -1,3 +1,5 @@
+import { FiscriptProps, QusetionsProps, StationArrayProps, StationProps } from '../_types';
+
 // function to map question to its station and questionGroup
 const questionMapToStation = (data: FiscriptProps) => {
   let questions: QusetionsProps = {};

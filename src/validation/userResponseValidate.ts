@@ -1,3 +1,5 @@
+import { QuestionProps } from '../_types';
+
 const isEmpty = (str: string) => {
   if (str === '' || str === null || str === undefined) return true;
   return false;
