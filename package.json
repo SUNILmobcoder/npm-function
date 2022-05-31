@@ -1,0 +1,19 @@
+{
+  "name": "npm-function",
+  "version": "1.0.0",
+  "description": "testing working of functions",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SUNILmobcoder/npm-function.git"
+  },
+  "author": "Sunil Kumar Yadav",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SUNILmobcoder/npm-function/issues"
+  },
+  "homepage": "https://github.com/SUNILmobcoder/npm-function#readme"
+}
