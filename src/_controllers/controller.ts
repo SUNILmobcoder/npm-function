@@ -1,4 +1,4 @@
-import { RenderStationProps } from '../_types';
+import { QuestionGroupProps, RenderStationProps } from '../_types';
 
 // true => not to render
 // false => render
@@ -9,4 +9,13 @@ const renderStations = (station: RenderStationProps) => {
   return false;
 };
 
-export { renderStations };
+// true => not to render
+// false => render
+const renderQuestionGroups = (questionGroup: QuestionGroupProps) => {
+  let { Hidden, ActivatedBy } = questionGroup;
+
+  if (Hidden === 'Y' && !ActivatedBy) return true;
+  return false;
+};
+
+export { renderStations, renderQuestionGroups };

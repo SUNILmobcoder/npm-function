@@ -1,3 +1,4 @@
-import { RenderStationProps } from '../_types';
+import { QuestionGroupProps, RenderStationProps } from '../_types';
 declare const renderStations: (station: RenderStationProps) => boolean;
-export { renderStations };
+declare const renderQuestionGroups: (questionGroup: QuestionGroupProps) => boolean;
+export { renderStations, renderQuestionGroups };
