@@ -1,22 +1,22 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.handleValidate = void 0;
-var isEmpty = function (str) {
+const isEmpty = (str) => {
     if (str === '' || str === null || str === undefined)
         return true;
     return false;
 };
-var handleValidate = function (props, userResponse) {
-    var Validation = props.Validation, Required = props.Required, Type = props.Type;
+const handleValidate = (props, userResponse) => {
+    let { Validation, Required, Type } = props;
     // if script have validation
     if (Validation) {
         // handle for text and multiline field
         if (Type === 'TextField' || Type === 'MultiLineText') {
             // handle validation if it have pattern
             if (Validation.pattern) {
-                var regex = Validation.pattern.value;
-                var msg = Validation.pattern.error;
-                var pattern = new RegExp(regex);
+                let regex = Validation.pattern.value;
+                let msg = Validation.pattern.error;
+                let pattern = new RegExp(regex);
                 // if user haven't responsed
                 if (userResponse === null)
                     return msg;
@@ -26,10 +26,10 @@ var handleValidate = function (props, userResponse) {
             }
             // handle validation if it hav min-max
             if (Validation.max && Validation.min) {
-                var min = parseInt(Validation.min.value);
-                var minMsg = Validation.min.error;
-                var max = parseInt(Validation.max.value);
-                var maxMsg = Validation.max.error;
+                let min = parseInt(Validation.min.value);
+                let minMsg = Validation.min.error;
+                let max = parseInt(Validation.max.value);
+                let maxMsg = Validation.max.error;
                 // if user haven't responsed
                 if (userResponse === null)
                     return minMsg;

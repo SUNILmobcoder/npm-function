@@ -1,19 +1,19 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.saveDateTimeFormat = exports.saveDateFormat = void 0;
-var formateDigit = function (num) {
+const formateDigit = (num) => {
     if (num > 9)
         return num;
-    return "0".concat(num);
+    return `0${num}`;
 };
 // handle date time save formate
-var saveDateTimeFormat = function (date) {
-    var day = date.getDate();
-    var month = date.getMonth() + 1;
-    var year = date.getFullYear();
-    var hour;
-    var minute = date.getMinutes();
-    var format;
+const saveDateTimeFormat = (date) => {
+    const day = date.getDate();
+    const month = date.getMonth() + 1;
+    const year = date.getFullYear();
+    let hour;
+    const minute = date.getMinutes();
+    let format;
     if (date.getHours() > 12) {
         hour = date.getHours() % 12;
         format = 'PM';
@@ -22,14 +22,14 @@ var saveDateTimeFormat = function (date) {
         hour = date.getHours();
         format = 'AM';
     }
-    return "".concat(formateDigit(month), "/").concat(formateDigit(day), "/").concat(year, " ").concat(formateDigit(hour), ":").concat(formateDigit(minute), " ").concat(format);
+    return `${formateDigit(month)}/${formateDigit(day)}/${year} ${formateDigit(hour)}:${formateDigit(minute)} ${format}`;
 };
 exports.saveDateTimeFormat = saveDateTimeFormat;
 // handle date save formate
-var saveDateFormat = function (date) {
-    var day = date.getDate();
-    var month = date.getMonth() + 1;
-    var year = date.getFullYear();
-    return "".concat(formateDigit(month), "/").concat(formateDigit(day), "/").concat(year);
+const saveDateFormat = (date) => {
+    const day = date.getDate();
+    const month = date.getMonth() + 1;
+    const year = date.getFullYear();
+    return `${formateDigit(month)}/${formateDigit(day)}/${year}`;
 };
 exports.saveDateFormat = saveDateFormat;

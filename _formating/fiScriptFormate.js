@@ -2,11 +2,11 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.formateStations = exports.filterStationsName = exports.questionMapToStation = void 0;
 // function to map question to its station and questionGroup
-var questionMapToStation = function (data) {
-    var questions = {};
-    data.Stations.forEach(function (station) {
-        station.QuestionGroups.sort(function (a, b) { return a.Sort - b.Sort; }).forEach(function (item) {
-            item.Questions.sort(function (a, b) { return a.Sort - b.Sort; }).forEach(function (i) {
+const questionMapToStation = (data) => {
+    let questions = {};
+    data.Stations.forEach((station) => {
+        station.QuestionGroups.sort((a, b) => a.Sort - b.Sort).forEach((item) => {
+            item.Questions.sort((a, b) => a.Sort - b.Sort).forEach((i) => {
                 questions[i.Name] = {
                     StationName: station.Name,
                     QuestionGroup: item.Name,
@@ -20,9 +20,9 @@ var questionMapToStation = function (data) {
 };
 exports.questionMapToStation = questionMapToStation;
 // function that return array of station
-var filterStationsName = function (data) {
-    var stationName = [];
-    data.Stations.forEach(function (station) {
+const filterStationsName = (data) => {
+    let stationName = [];
+    data.Stations.forEach((station) => {
         stationName.push({
             Type: station.Type,
             Name: station.Name,
@@ -36,11 +36,11 @@ var filterStationsName = function (data) {
 };
 exports.filterStationsName = filterStationsName;
 // sort question group and question and added a key in named userResponse
-var formateStations = function (data) {
-    var stations = {};
-    data.Stations.forEach(function (station) {
-        station.QuestionGroups.sort(function (a, b) { return a.Sort - b.Sort; }).forEach(function (questionGroup) {
-            questionGroup.Questions.sort(function (a, b) { return a.Sort - b.Sort; }).forEach(function (question) {
+const formateStations = (data) => {
+    let stations = {};
+    data.Stations.forEach((station) => {
+        station.QuestionGroups.sort((a, b) => a.Sort - b.Sort).forEach((questionGroup) => {
+            questionGroup.Questions.sort((a, b) => a.Sort - b.Sort).forEach((question) => {
                 question['userResponse'] = null;
                 question['StationName'] = station.Name;
                 question['QuestionGroupName'] = questionGroup.Name;
