@@ -48,8 +48,6 @@ const getAnswerByQuestion = (props: QuestionProps) => {
   // if question have prepopulated values and response is null
   if (PrePopulate && answer === null) {
     if (PrePopulate.PrePopulatedBy.LuggageSource) {
-      console.log('at getPrePopulatedValue', LUGGAGE);
-
       let preValue = getPrePopulatedValue(
         LUGGAGE,
         PrePopulate.PrePopulatedBy.Key,
@@ -125,16 +123,14 @@ const handleGetAnsweByStation = (props: StationProps) => {
 
 const handleSaveTransport = (
   station: { [key: string]: StationProps },
-  QUESTION_LIST: QusetionsProps,
+  Question: QusetionsProps,
   Luggage: LuggageProps,
   Language: { [key: string]: string },
 ) => {
-  USER_RESPONSE = QUESTION_LIST;
+  USER_RESPONSE = Question;
   LUGGAGE = Luggage;
   LANGUAGE = Language;
   STATIONS = station;
-
-  console.log('at station', LUGGAGE);
 
   ERROR = false;
   TOTAL_ERROR_COUNT = {};
