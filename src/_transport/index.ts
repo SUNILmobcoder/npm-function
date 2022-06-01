@@ -135,7 +135,6 @@ const handleSaveTransport = (
   ERROR = false;
   TOTAL_ERROR_COUNT = {};
   let ANSWERS: AnswerProps[] = [];
-  ERROR_COLLECTION = [];
 
   Object.entries(STATIONS).forEach((item) => {
     let { Visible, Hidden, ActivatedBy } = item[1];
