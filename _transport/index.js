@@ -116,6 +116,7 @@ const handleSaveTransport = (station, Question, Luggage, Language) => {
     ERROR = false;
     TOTAL_ERROR_COUNT = {};
     let ANSWERS = [];
+    ERROR_COLLECTION = [];
     Object.entries(STATIONS).forEach((item) => {
         let { Visible, Hidden, ActivatedBy } = item[1];
         if (validateData(Visible, Hidden, ActivatedBy))
