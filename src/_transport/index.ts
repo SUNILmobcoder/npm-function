@@ -48,6 +48,8 @@ const getAnswerByQuestion = (props: QuestionProps) => {
   // if question have prepopulated values and response is null
   if (PrePopulate && answer === null) {
     if (PrePopulate.PrePopulatedBy.LuggageSource) {
+      console.log('at getPrePopulatedValue', LUGGAGE);
+
       let preValue = getPrePopulatedValue(
         LUGGAGE,
         PrePopulate.PrePopulatedBy.Key,
@@ -132,6 +134,8 @@ const handleSaveTransport = (
   LANGUAGE = LANGUAGE;
   STATIONS = station;
 
+  console.log('at station', LUGGAGE);
+
   ERROR = false;
   TOTAL_ERROR_COUNT = {};
   let ANSWERS: AnswerProps[] = [];
@@ -140,8 +144,7 @@ const handleSaveTransport = (
     let { Visible, Hidden, ActivatedBy } = item[1];
     if (validateData(Visible, Hidden, ActivatedBy)) ANSWERS = ANSWERS.concat(handleGetAnsweByStation(item[1]));
   });
-  console.log('TOTAL_ERROR_COUNT', TOTAL_ERROR_COUNT);
-  return { error: ERROR, ANSWERS, errorMsg: ERROR_COLLECTION };
+  return { error: ERROR, ANSWERS, errorMsg: ERROR_COLLECTION ? ERROR_COLLECTION : [] };
 };
 
 export { handleSaveTransport };
