@@ -5,7 +5,7 @@ interface AnswerProps {
 }
 declare const handleSaveTransport: (station: {
     [key: string]: StationProps;
-}, QUESTION_LIST: QusetionsProps, LUGGAGE: LuggageProps, LANGUAGE: {
+}, QUESTION_LIST: QusetionsProps, Luggage: LuggageProps, Language: {
     [key: string]: string;
 }) => {
     error: boolean;

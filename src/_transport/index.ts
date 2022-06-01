@@ -126,12 +126,12 @@ const handleGetAnsweByStation = (props: StationProps) => {
 const handleSaveTransport = (
   station: { [key: string]: StationProps },
   QUESTION_LIST: QusetionsProps,
-  LUGGAGE: LuggageProps,
-  LANGUAGE: { [key: string]: string },
+  Luggage: LuggageProps,
+  Language: { [key: string]: string },
 ) => {
   USER_RESPONSE = QUESTION_LIST;
-  LUGGAGE = LUGGAGE;
-  LANGUAGE = LANGUAGE;
+  LUGGAGE = Luggage;
+  LANGUAGE = Language;
   STATIONS = station;
 
   console.log('at station', LUGGAGE);
@@ -139,12 +139,13 @@ const handleSaveTransport = (
   ERROR = false;
   TOTAL_ERROR_COUNT = {};
   let ANSWERS: AnswerProps[] = [];
+  ERROR_COLLECTION = [];
 
   Object.entries(STATIONS).forEach((item) => {
     let { Visible, Hidden, ActivatedBy } = item[1];
     if (validateData(Visible, Hidden, ActivatedBy)) ANSWERS = ANSWERS.concat(handleGetAnsweByStation(item[1]));
   });
-  return { error: ERROR, ANSWERS, errorMsg: ERROR_COLLECTION ? ERROR_COLLECTION : [] };
+  return { error: ERROR, ANSWERS, errorMsg: ERROR_COLLECTION };
 };
 
 export { handleSaveTransport };
