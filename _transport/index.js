@@ -122,6 +122,8 @@ const handleSaveTransport = (station, Question, Luggage, Language) => {
         if (validateData(Visible, Hidden, ActivatedBy))
             ANSWERS = ANSWERS.concat(handleGetAnsweByStation(item[1]));
     });
+    console.log('TOTAL_ERROR_COUNT', TOTAL_ERROR_COUNT);
+    console.log(ERROR_COLLECTION, 'ERROR_COLLECTION');
     return { error: ERROR, ANSWERS, errorMsg: ERROR_COLLECTION };
 };
 exports.handleSaveTransport = handleSaveTransport;

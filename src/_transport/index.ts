@@ -141,6 +141,9 @@ const handleSaveTransport = (
     let { Visible, Hidden, ActivatedBy } = item[1];
     if (validateData(Visible, Hidden, ActivatedBy)) ANSWERS = ANSWERS.concat(handleGetAnsweByStation(item[1]));
   });
+  console.log('TOTAL_ERROR_COUNT', TOTAL_ERROR_COUNT);
+  console.log(ERROR_COLLECTION, 'ERROR_COLLECTION');
+
   return { error: ERROR, ANSWERS, errorMsg: ERROR_COLLECTION };
 };
 

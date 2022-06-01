@@ -49,6 +49,7 @@ const handleValidate = (props, userResponse) => {
         }
     }
     // if it is required and user haven't answered
+    console.log('userResponse', userResponse);
     if (isEmpty(userResponse ? userResponse[0] : userResponse)) {
         if (Required === 'Y')
             return 'This field is required';
