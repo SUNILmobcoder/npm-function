@@ -11,7 +11,7 @@ declare const handleSaveTransport: (station: {
     error: boolean;
     ANSWERS: AnswerProps[];
     errorMsg: {
-        name: string;
+        QuestionName: string;
         error: string;
     }[];
 };

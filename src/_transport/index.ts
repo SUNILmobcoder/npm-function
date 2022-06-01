@@ -5,7 +5,7 @@ import { handleValidate } from '../_validation';
 let USER_RESPONSE: any;
 let ERROR: boolean;
 let TOTAL_ERROR_COUNT: { [stationName: string]: number };
-let ERROR_COLLECTION: { name: string; error: string }[];
+let ERROR_COLLECTION: { QuestionName: string; error: string }[];
 
 let QUESTION_LIST: QusetionsProps;
 let LUGGAGE: LuggageProps;
@@ -37,7 +37,7 @@ const getAnswerByQuestion = (props: QuestionProps) => {
     if (valid === 'true') {
       return { Name: Name, Values: answer };
     } else {
-      ERROR_COLLECTION.push({ name: Name, error: valid });
+      ERROR_COLLECTION.push({ QuestionName: Name, error: valid });
       if (StationName)
         TOTAL_ERROR_COUNT[StationName] = TOTAL_ERROR_COUNT[StationName] ? TOTAL_ERROR_COUNT[StationName] + 1 : 1;
       ERROR = true;
@@ -79,7 +79,7 @@ const getAnswerByQuestion = (props: QuestionProps) => {
 
   // if question is required and response is null
   if (Required === 'Y' && answer === null) {
-    ERROR_COLLECTION.push({ name: Name, error: 'This is required field' });
+    ERROR_COLLECTION.push({ QuestionName: Name, error: 'This is required field' });
     if (StationName)
       TOTAL_ERROR_COUNT[StationName] = TOTAL_ERROR_COUNT[StationName] ? TOTAL_ERROR_COUNT[StationName] + 1 : 1;
     ERROR = true;

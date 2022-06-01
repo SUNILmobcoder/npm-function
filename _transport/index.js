@@ -33,7 +33,7 @@ const getAnswerByQuestion = (props) => {
             return { Name: Name, Values: answer };
         }
         else {
-            ERROR_COLLECTION.push({ name: Name, error: valid });
+            ERROR_COLLECTION.push({ QuestionName: Name, error: valid });
             if (StationName)
                 TOTAL_ERROR_COUNT[StationName] = TOTAL_ERROR_COUNT[StationName] ? TOTAL_ERROR_COUNT[StationName] + 1 : 1;
             ERROR = true;
@@ -68,7 +68,7 @@ const getAnswerByQuestion = (props) => {
     }
     // if question is required and response is null
     if (Required === 'Y' && answer === null) {
-        ERROR_COLLECTION.push({ name: Name, error: 'This is required field' });
+        ERROR_COLLECTION.push({ QuestionName: Name, error: 'This is required field' });
         if (StationName)
             TOTAL_ERROR_COUNT[StationName] = TOTAL_ERROR_COUNT[StationName] ? TOTAL_ERROR_COUNT[StationName] + 1 : 1;
         ERROR = true;
