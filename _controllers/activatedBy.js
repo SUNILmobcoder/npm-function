@@ -47,6 +47,7 @@ const handleActivatedBy = (props, LUGGAGE, QUESTION_LIST, LANGUAGE, STATIONS) =>
         }
         catch (_a) {
             console.log("Didn't find ", Key);
+            result = result && false;
         }
     }
     return result;

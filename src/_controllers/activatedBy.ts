@@ -61,6 +61,7 @@ const handleActivatedBy = (
       }
     } catch {
       console.log("Didn't find ", Key);
+      result = result && false;
     }
   }
 
