@@ -2,12 +2,11 @@ import { activatedBy, getDefaultValue, getDefaultValueSelect, getPrePopulatedVal
 import { LuggageProps, QuestionGroupProps, QuestionProps, QusetionsProps, StationProps } from '../_types';
 import { handleValidate } from '../_validation';
 
-let USER_RESPONSE: any;
+let USER_RESPONSE: QusetionsProps;
 let ERROR: boolean;
 let TOTAL_ERROR_COUNT: { [stationName: string]: number };
-let ERROR_COLLECTION: { QuestionName: string; error: string }[];
+let ERROR_COLLECTION: { QuestionName: string; error: string }[] = [];
 
-let QUESTION_LIST: QusetionsProps;
 let LUGGAGE: LuggageProps;
 let LANGUAGE: { [key: string]: string };
 let STATIONS: { [key: string]: StationProps };
@@ -19,7 +18,7 @@ interface AnswerProps {
 
 // function for checking that It should include in Answer or not
 const validateData = (visible?: string, hidden?: string, activated?: any) => {
-  if (activated && activatedBy(activated, QUESTION_LIST, LUGGAGE, LANGUAGE, STATIONS)) return true;
+  if (activated && activatedBy(activated, USER_RESPONSE, LUGGAGE, LANGUAGE, STATIONS)) return true;
   if (visible === 'N') return false;
   if (!activated) return true;
   return false;

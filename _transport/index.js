@@ -6,14 +6,13 @@ const _validation_1 = require("../_validation");
 let USER_RESPONSE;
 let ERROR;
 let TOTAL_ERROR_COUNT;
-let ERROR_COLLECTION;
-let QUESTION_LIST;
+let ERROR_COLLECTION = [];
 let LUGGAGE;
 let LANGUAGE;
 let STATIONS;
 // function for checking that It should include in Answer or not
 const validateData = (visible, hidden, activated) => {
-    if (activated && (0, _controllers_1.activatedBy)(activated, QUESTION_LIST, LUGGAGE, LANGUAGE, STATIONS))
+    if (activated && (0, _controllers_1.activatedBy)(activated, USER_RESPONSE, LUGGAGE, LANGUAGE, STATIONS))
         return true;
     if (visible === 'N')
         return false;
