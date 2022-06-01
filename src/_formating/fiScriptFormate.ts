@@ -1,7 +1,7 @@
-import { FiscriptProps, QusetionsProps, StationArrayProps, StationProps } from '../_types';
+import { ScriptProps, QusetionsProps, StationArrayProps, StationProps } from '../_types';
 
 // function to map question to its station and questionGroup
-const questionMapToStation = (data: FiscriptProps) => {
+const questionMapToStation = (data: ScriptProps) => {
   let questions: QusetionsProps = {};
   data.Stations.forEach((station) => {
     station.QuestionGroups.sort((a, b) => a.Sort - b.Sort).forEach((item) => {
@@ -19,7 +19,7 @@ const questionMapToStation = (data: FiscriptProps) => {
 };
 
 // function that return array of station
-const filterStationsName = (data: FiscriptProps) => {
+const filterStationsName = (data: ScriptProps) => {
   let stationName: StationArrayProps[] = [];
   data.Stations.forEach((station) => {
     stationName.push({
@@ -35,7 +35,7 @@ const filterStationsName = (data: FiscriptProps) => {
 };
 
 // sort question group and question and added a key in named userResponse
-const formateStations = (data: FiscriptProps) => {
+const formateStations = (data: ScriptProps) => {
   let stations: { [key: string]: StationProps } = {};
   data.Stations.forEach((station) => {
     station.QuestionGroups.sort((a, b) => a.Sort - b.Sort).forEach((questionGroup) => {

@@ -1,4 +1,4 @@
-interface FiscriptProps {
+interface ScriptProps {
     Name: string;
     Stations: {
         Type: string;
@@ -524,4 +524,4 @@ interface RenderStationProps {
         ActivatedBy?: any;
     }[];
 }
-export type { FiscriptProps, StationProps, StationArrayProps, QusetionsProps, QuestionProps, ActivatedByProps, AnswerProps, QuestionGroupProps, LanguageProps, LuggageProps, RenderStationProps, };
+export type { ScriptProps, StationProps, StationArrayProps, QusetionsProps, QuestionProps, ActivatedByProps, AnswerProps, QuestionGroupProps, LanguageProps, LuggageProps, RenderStationProps, };

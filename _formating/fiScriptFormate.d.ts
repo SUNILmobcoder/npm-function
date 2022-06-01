@@ -1,7 +1,7 @@
-import { FiscriptProps, QusetionsProps, StationArrayProps, StationProps } from '../_types';
-declare const questionMapToStation: (data: FiscriptProps) => QusetionsProps;
-declare const filterStationsName: (data: FiscriptProps) => StationArrayProps[];
-declare const formateStations: (data: FiscriptProps) => {
+import { ScriptProps, QusetionsProps, StationArrayProps, StationProps } from '../_types';
+declare const questionMapToStation: (data: ScriptProps) => QusetionsProps;
+declare const filterStationsName: (data: ScriptProps) => StationArrayProps[];
+declare const formateStations: (data: ScriptProps) => {
     [key: string]: StationProps;
 };
 export { questionMapToStation, filterStationsName, formateStations };

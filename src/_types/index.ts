@@ -1,4 +1,4 @@
-interface FiscriptProps {
+interface ScriptProps {
   Name: string;
   Stations: {
     Type: string;
@@ -540,7 +540,7 @@ interface RenderStationProps {
 }
 
 export type {
-  FiscriptProps,
+  ScriptProps,
   StationProps,
   StationArrayProps,
   QusetionsProps,
