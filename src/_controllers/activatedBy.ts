@@ -39,13 +39,19 @@ const handleActivatedBy = (
 
   // handle if it is Luggage type
   if (Type === 'Luggage' && Operator && Values) {
-    let luggageLookupValue = luggageLookup(LUGGAGE, Operator, Values, Key, LuggageSource);
-    result = result || luggageLookupValue;
+    try {
+      let luggageLookupValue = luggageLookup(LUGGAGE, Operator, Values, Key, LuggageSource);
+      result = result || luggageLookupValue;
 
-    // handle nested activatedBy key
-    if (ActivatedBy) {
-      let luggageLookupValues = activatedBy(ActivatedBy, QUESTION_LIST, LUGGAGE, LANGUAGE, STATIONS);
-      result = result && luggageLookupValues;
+      // handle nested activatedBy key
+      if (ActivatedBy) {
+        let luggageLookupValues = activatedBy(ActivatedBy, QUESTION_LIST, LUGGAGE, LANGUAGE, STATIONS);
+        result = result && luggageLookupValues;
+      }
+    } catch {
+      console.log("Didn't find ", Key);
+      return false;
+      KEY_NOT_FOUND = true;
     }
   }
 
@@ -64,6 +70,7 @@ const handleActivatedBy = (
       }
     } catch {
       console.log("Didn't find ", Key);
+      return false;
       KEY_NOT_FOUND = true;
     }
   }

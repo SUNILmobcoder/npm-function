@@ -26,12 +26,19 @@ const handleActivatedBy = (props, LUGGAGE, QUESTION_LIST, LANGUAGE, STATIONS) =>
     let { ActivatedBy, Operator, Values, Key, LuggageSource, Type } = props;
     // handle if it is Luggage type
     if (Type === 'Luggage' && Operator && Values) {
-        let luggageLookupValue = (0, luggageLookup_1.luggageLookup)(LUGGAGE, Operator, Values, Key, LuggageSource);
-        result = result || luggageLookupValue;
-        // handle nested activatedBy key
-        if (ActivatedBy) {
-            let luggageLookupValues = activatedBy(ActivatedBy, QUESTION_LIST, LUGGAGE, LANGUAGE, STATIONS);
-            result = result && luggageLookupValues;
+        try {
+            let luggageLookupValue = (0, luggageLookup_1.luggageLookup)(LUGGAGE, Operator, Values, Key, LuggageSource);
+            result = result || luggageLookupValue;
+            // handle nested activatedBy key
+            if (ActivatedBy) {
+                let luggageLookupValues = activatedBy(ActivatedBy, QUESTION_LIST, LUGGAGE, LANGUAGE, STATIONS);
+                result = result && luggageLookupValues;
+            }
+        }
+        catch (_a) {
+            console.log("Didn't find ", Key);
+            return false;
+            KEY_NOT_FOUND = true;
         }
     }
     // handle if it is Question type
@@ -48,8 +55,9 @@ const handleActivatedBy = (props, LUGGAGE, QUESTION_LIST, LANGUAGE, STATIONS) =>
                 result = result && questionLookupValues;
             }
         }
-        catch (_a) {
+        catch (_b) {
             console.log("Didn't find ", Key);
+            return false;
             KEY_NOT_FOUND = true;
         }
     }
