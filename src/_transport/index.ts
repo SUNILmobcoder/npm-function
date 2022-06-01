@@ -5,7 +5,7 @@ import { handleValidate } from '../_validation';
 let USER_RESPONSE: QusetionsProps;
 let ERROR: boolean;
 let TOTAL_ERROR_COUNT: { [stationName: string]: number };
-let ERROR_COLLECTION: { QuestionName: string; error: string }[] = [];
+let ERROR_COLLECTION: { QuestionName: string; error: string }[];
 
 let LUGGAGE: LuggageProps;
 let LANGUAGE: { [key: string]: string };
@@ -140,9 +140,6 @@ const handleSaveTransport = (
     let { Visible, Hidden, ActivatedBy } = item[1];
     if (validateData(Visible, Hidden, ActivatedBy)) ANSWERS = ANSWERS.concat(handleGetAnsweByStation(item[1]));
   });
-  console.log('TOTAL_ERROR_COUNT', TOTAL_ERROR_COUNT);
-  console.log(ERROR_COLLECTION, 'ERROR_COLLECTION');
-
   return { error: ERROR, ANSWERS, errorMsg: ERROR_COLLECTION };
 };
 
