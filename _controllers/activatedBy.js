@@ -3,6 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.activatedBy = void 0;
 const luggageLookup_1 = require("./luggageLookup");
 const questionLookup_1 = require("./questionLookup");
+let KEY_NOT_FOUND = false;
 const activatedBy = (props, QUESTION_LIST, LUGGAGE, LANGUAGE, STATIONS) => {
     let active = false;
     if (QUESTION_LIST) {
@@ -11,6 +12,8 @@ const activatedBy = (props, QUESTION_LIST, LUGGAGE, LANGUAGE, STATIONS) => {
             active = active || handleActivatedBy(item, LUGGAGE, QUESTION_LIST, LANGUAGE, STATIONS);
         });
     }
+    if (KEY_NOT_FOUND)
+        return false;
     return active === undefined ? false : active;
 };
 exports.activatedBy = activatedBy;
@@ -47,7 +50,7 @@ const handleActivatedBy = (props, LUGGAGE, QUESTION_LIST, LANGUAGE, STATIONS) =>
         }
         catch (_a) {
             console.log("Didn't find ", Key);
-            result = result && false;
+            KEY_NOT_FOUND = true;
         }
     }
     return result;

@@ -2,6 +2,8 @@ import { ActivatedByProps, LuggageProps, QusetionsProps, StationProps } from '..
 import { luggageLookup } from './luggageLookup';
 import { questionLookup } from './questionLookup';
 
+let KEY_NOT_FOUND: boolean = false;
+
 const activatedBy = (
   props: ActivatedByProps[],
   QUESTION_LIST: QusetionsProps,
@@ -16,6 +18,7 @@ const activatedBy = (
       active = active || handleActivatedBy(item, LUGGAGE, QUESTION_LIST, LANGUAGE, STATIONS);
     });
   }
+  if (KEY_NOT_FOUND) return false;
   return active === undefined ? false : active;
 };
 
@@ -61,7 +64,7 @@ const handleActivatedBy = (
       }
     } catch {
       console.log("Didn't find ", Key);
-      result = result && false;
+      KEY_NOT_FOUND = true;
     }
   }
 
